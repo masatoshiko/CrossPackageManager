@@ -12,6 +12,10 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\LibCrossPackageManager\LibCrossPackageManager.csproj" />
   </ItemGroup>

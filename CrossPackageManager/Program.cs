@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using LibCrossPackageManager;
 
 namespace CrossPackageManager
@@ -7,7 +8,21 @@ namespace CrossPackageManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("");
+            ArgumentParser argparse = new ArgumentParser();
+            argparse.Commands = new Dictionary<string, string>()
+            {
+                {"install","-i"},
+                {"remove","-r"},
+                {"sync","-s"},
+                {"search","-s"},
+            };
+
+            argparse.Options = new Dictionary<string, string>()
+            {
+                {"--allyes", "-y"}
+            };
+
+            ParseResult parseResult = argparse.Parse(args);
         }
     }
 }
