@@ -8,7 +8,6 @@ namespace CrossPackageManager
     {
         static void Main(string[] args)
         {
-            Program program = new Program();
             ArgumentParser argparse = new ArgumentParser();
             argparse.Commands = new Dictionary<string, string>()
             {
