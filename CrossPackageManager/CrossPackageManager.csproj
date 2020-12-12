@@ -17,7 +17,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NGettext" Version="0.6.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibCrossPackageManager\LibCrossPackageManager.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="locale\" />
   </ItemGroup>
 
 </Project>
