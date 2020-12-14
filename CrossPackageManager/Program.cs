@@ -41,6 +41,10 @@ namespace CrossPackageManager
                     Install install = new Install();
                     install.Main(parseResult.Arguments.ToArray());
                     break;
+
+                default:
+                    InvalidCommandError(parseResult.Command);
+                    return;
             }
         }
 
@@ -58,7 +62,17 @@ namespace CrossPackageManager
         {
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine(T._("Command not found."));
+            Console.WriteLine(T._("Command is not found."));
+            Console.WriteLine(T._("See 'crspkg help'"));
+
+            Console.ResetColor();
+        }
+
+        static private void InvalidCommandError(string invalid_command)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine(T._("Invalid command: {0}", invalid_command));
             Console.WriteLine(T._("See 'crspkg help'"));
 
             Console.ResetColor();
