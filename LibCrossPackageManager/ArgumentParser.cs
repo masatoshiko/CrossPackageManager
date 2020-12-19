@@ -43,8 +43,8 @@ namespace LibCrossPackageManager
             List<string> invalidoptions = new List<string>();
 
             // コマンド解析
-            if (Commands.ContainsKey(args[0])) command = args[0];
-            else if (Commands.ContainsValue(args[0]))
+            if (Commands.ContainsKey(args[0])) command = args[0];   // long command
+            else if (Commands.ContainsValue(args[0]))   // short command
             {
                 KeyValuePair<string, string> parse = Commands.FirstOrDefault(Commands => Commands.Value == args[0]);
                 command = parse.Key;
@@ -55,7 +55,7 @@ namespace LibCrossPackageManager
             {
                 for (int i = 1; i < args.Length; i++)
                 {
-                    if (args[i].StartsWith("-"))
+                    if (args[i].StartsWith("-"))    // short command
                     {
                         if (Options.ContainsValue(args[i]))
                         {
@@ -64,12 +64,12 @@ namespace LibCrossPackageManager
                         }
                         else invalidoptions.Add(args[i]);
                     }
-                    else if (args[i].StartsWith("--"))
+                    else if (args[i].StartsWith("--"))  // long command
                     {
                         if (Options.ContainsKey(args[i])) settedoptions.Add(args[i]);
                         else invalidoptions.Add(args[i]);
                     }
-                    else settedoptions.Add(args[i]);
+                    else arguments.Add(args[i]);
                 }
             }
 
