@@ -29,7 +29,7 @@ namespace CrossPackageManager
 
             ParseResult parseResult = argparse.Parse(args);
 
-            if (parseResult.InvalidOptions != null)
+            if (parseResult.InvalidOptions.Count > 0)
             {
                 InvalidOptionError(parseResult.InvalidOptions.ToArray());
                 return;
