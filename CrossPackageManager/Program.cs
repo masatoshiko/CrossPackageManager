@@ -15,10 +15,13 @@ namespace CrossPackageManager
                 {"remove","-r"},
                 {"sync","-s"},
                 {"search","-s"},
+                {"dev", null}
             };
             argparse.Options = new Dictionary<string, string>()
             {
-                {"--allyes", "-y"}
+                {"--allyes", "-y"},
+                {"--update", null},
+                {"--show", null}
             };
 
             if (args.Length == 0)
@@ -38,9 +41,14 @@ namespace CrossPackageManager
             switch (parseResult.Command)
             {
                 case "install":
-                    Install install = new Install();
-                    install.Main(parseResult.Arguments.ToArray());
+                    //Install install = new Install();
+                    //install.Main(parseResult.Arguments.ToArray());
                     break;
+
+                case "dev":
+                    DeveloperTool dev_tool = new DeveloperTool();
+                    dev_tool.Main(args);
+                    return;
 
                 default:
                     InvalidCommandError(parseResult.Command);
