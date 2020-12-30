@@ -32,12 +32,6 @@ namespace CrossPackageManager
 
             ParseResult parseResult = argparse.Parse(args);
 
-            if (parseResult.InvalidOptions.Count > 0)
-            {
-                InvalidOptionError(parseResult.InvalidOptions.ToArray());
-                return;
-            }
-
             switch (parseResult.Command)
             {
                 case "install":
