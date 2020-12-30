@@ -154,7 +154,6 @@ namespace CrossPackageManager
             };
 
             Console.WriteLine("-- 登録するパッケージ情報 --");
-            Console.WriteLine($"データベースID(変更不可): {package_info.Id}");
             Console.WriteLine($"パッケージ名: {package_info.PackageName}");
             Console.WriteLine($"パッケージID: {package_info.PackageId}");
 
