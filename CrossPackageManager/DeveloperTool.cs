@@ -42,7 +42,7 @@ namespace CrossPackageManager
                 if (new_package_id == null)
                 {
                     Console.Write("新しいパッケージID: ");
-                    new_package_name = Console.ReadLine();
+                    new_package_id = Console.ReadLine();
                 }
 
                 break;
@@ -83,7 +83,7 @@ namespace CrossPackageManager
                 int database_id = -1;
                 Console.Write("データベースのID: ");
                 string temp_dbid = Console.ReadLine();
-                if (temp_dbid == null || !(int.TryParse(temp_dbid, out database_id) && database_id > 0))
+                if (temp_dbid == null || (int.TryParse(temp_dbid, out database_id) == false && database_id < 0))
                 {
                     Console.WriteLine("不正な入力です。");
                     return;
@@ -134,7 +134,7 @@ namespace CrossPackageManager
                 if (new_package_id == null)
                 {
                     Console.Write("新しいパッケージID: ");
-                    new_package_name = Console.ReadLine();
+                    new_package_id = Console.ReadLine();
 
                     if (new_package_id == null)
                     {
